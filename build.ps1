@@ -54,7 +54,7 @@ Param(
     [string[]]$ScriptArgs
 )
 
-Write-Host "Preparing to run build script..."
+# Write-Host "Preparing to run build script..."
 
 $PSScriptRoot = split-path -parent $MyInvocation.MyCommand.Definition;
 $TOOLS_DIR = Join-Path $PSScriptRoot "tools"
@@ -140,6 +140,6 @@ if (!(Test-Path $CAKE_EXE)) {
 }
 
 # Start Cake
-Write-Host "Running build script..."
+# Write-Host "Running build script..."
 Invoke-Expression "& `"$CAKE_EXE`" `"$Script`" -target=`"$Target`" -configuration=`"$Configuration`" -verbosity=`"$Verbosity`" $UseMono $UseDryRun $UseExperimental $ScriptArgs"
 exit $LASTEXITCODE
