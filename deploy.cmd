@@ -54,11 +54,6 @@ IF NOT DEFINED KUDU_SYNC_CMD (
 
 echo Handling Basic Web Site deployment.
 
-:: KuduSync
-
-call :ExecuteCmd "%DEPLOYMENT_SOURCE%"\build.ps1 
-IF !ERRORLEVEL! NEQ 0 goto error
-
 
 :: KuduSync
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (  

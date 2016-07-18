@@ -4,6 +4,7 @@
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
 var target = Argument("target", "Default");
+var target = Argument("sourceDirectory");
 var configuration = Argument("configuration", "Release");
 var solution = "./Punch.sln";
 

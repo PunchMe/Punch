@@ -66,8 +66,6 @@ $PACKAGES_CONFIG = Join-Path $TOOLS_DIR "packages.config"
 
 # Should we use mono?
 $UseMono = "";
-Write-Verbose -Message "Testing on Azure build"
-Write-Verbose -Message $DEPLOYMENT_SOURCE
 if($Mono.IsPresent) {
     Write-Verbose -Message "Using the Mono based scripting engine."
     $UseMono = "-mono"
@@ -144,5 +142,5 @@ if (!(Test-Path $CAKE_EXE)) {
 
 # Start Cake
 # Write-Host "Running build script..."
-Invoke-Expression "& `"$CAKE_EXE`" `"$Script`" -target=`"$Target`" -configuration=`"$Configuration`" -verbosity=`"$Verbosity`" $UseMono $UseDryRun $UseExperimental $ScriptArgs"
+Invoke-Expression "& `"$CAKE_EXE`" `"$Script`" -target=`"$Target`" -sourceDirectory=`"$DEPLOYMENT_SOURCE`" -configuration=`"$Configuration`" -verbosity=`"$Verbosity`" $UseMono $UseDryRun $UseExperimental $ScriptArgs" 
 exit $LASTEXITCODE
