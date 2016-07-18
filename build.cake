@@ -4,7 +4,7 @@
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
 var target = Argument("target", "Default");
-var sourceDirectory = Argument("sourceDirectory", "repository");
+var source = Argument("source", "repository");
 var configuration = Argument("configuration", "Release");
 var solution = "./Punch.sln";
 
@@ -59,8 +59,14 @@ Task("Run-Unit-Tests")
 Task("Default")
     .IsDependentOn("Run-Unit-Tests")
     .Does(()=>
-    {
-        Information(sourceDirectory);
+    {        
+        Information(source);
+        Information(configuration);
+        Information(solution);
+
+
+
+
     });;
 
 //////////////////////////////////////////////////////////////////////
