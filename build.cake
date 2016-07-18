@@ -57,7 +57,11 @@ Task("Run-Unit-Tests")
 //////////////////////////////////////////////////////////////////////
 
 Task("Default")
-    .IsDependentOn("Run-Unit-Tests");
+    .IsDependentOn("Run-Unit-Tests")
+    .Does(()=>
+    {
+        Information(sourceDirectory);
+    });;
 
 //////////////////////////////////////////////////////////////////////
 // EXECUTION
