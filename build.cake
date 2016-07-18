@@ -1,3 +1,5 @@
+#tool "nuget:?package=xunit.runners&version=1.9.2"
+
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
@@ -12,7 +14,7 @@ var solution = "./Punch.sln";
 Task("Clean")
     .Does(() =>
 {
-  CleanDirectories("./**/" + configuration);      
+  CleanDirectories("./**/bin/" + configuration);      
 });
 
 Task("Restore-NuGet-Packages")
@@ -44,8 +46,8 @@ Task("Run-Unit-Tests")
     .IsDependentOn("Build")
     .Does(() =>
 {  
-    NUnit3("./src/**/bin/" + configuration + "/*.Tests.dll", new NUnit3Settings {
-        NoResults = true
+    XUnit("./**/bin/" + configuration + "/*.Tests.dll", new XUnitSettings {
+        XmlReport = false
         });
 });
 
