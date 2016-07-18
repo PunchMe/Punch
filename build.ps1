@@ -33,6 +33,7 @@ Skips restoring of packages.
 .PARAMETER ScriptArgs
 Remaining arguments are added here.
 
+
 .LINK
 http://cakebuild.net
 
@@ -65,6 +66,8 @@ $PACKAGES_CONFIG = Join-Path $TOOLS_DIR "packages.config"
 
 # Should we use mono?
 $UseMono = "";
+Write-Verbose -Message "Testing on Azure build"
+Write-Verbose -Message $DEPLOYMENT_SOURCE
 if($Mono.IsPresent) {
     Write-Verbose -Message "Using the Mono based scripting engine."
     $UseMono = "-mono"
