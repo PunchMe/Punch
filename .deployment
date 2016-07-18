@@ -1,2 +1,2 @@
 [config]
-command = deploy.cmd
+command = powershell -NoProfile -NoLogo -ExecutionPolicy Unrestricted -Command "& "$pwd\build.ps1" 2>&1 | echo"
